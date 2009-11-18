@@ -13,10 +13,14 @@ Currently, data is automatically imported for the past week's worth of data ever
 - Restart Redmine
 - Create a "config/harvest.yml" file with the following:
 
-  domain:  <Harvest subdomain>
-  email: <Harvest email address>
-  password: <Harvest password>
-
+  <tt>
+    domain:  <Harvest subdomain>
+    
+    email: <Harvest email address>
+    
+    password: <Harvest password>
+  </tt>
+  
 ==Global setup
 
 Before you can actually use the plugin within the preferred projects some setup has to be done first.
