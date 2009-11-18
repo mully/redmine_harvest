@@ -1,0 +1,46 @@
+= harvest
+
+==Installation
+
+- Install the plugin as described at: http://www.redmine.org/wiki/redmine/Plugins, according to the way you've obtained the plugin (this plugin does not require a plugin database migration)
+- Restart Redmine
+- Create a "config/harvest.yml" file with the following:
+
+domain:  <Harvest subdomain>
+email: <Harvest email address>
+password: <Harvest password>
+
+==Global setup
+
+Before you can actually use the plugin within the preferred projects some setup has to be done first.
+
+- Go to "Administration -> Custom fields" and create a Project custom field of the type "integer", named 'Harvest Project ID' for example.
+- Go to "Administration -> Custom fields" and create a User custom field of the type "integer", named 'Harvest User ID' for example.
+- Go to "Administration -> Plugins -> Redmine Harvest Plugin > Configure" to configure the Harvest plugin:
+  * select the project custom field which contains the "Harvest Project ID"; 
+  * select the user custom field "Harvest User ID";
+  * Click "Apply"
+
+==Project level setup
+
+- Activate Module
+  * Go to a Redmine project where you would like to activate the Harvest Plugin
+  * Go to the "Settings" tab
+  * To to the "Modules" tab
+  * click "Harvest" checkbox
+- Go to "Information" Tab and add the "Harvest Project ID" from Harvest
+
+==User level setup
+
+- Go to "Administration" top menu and click on "Users"
+- Click on a user that is in Harvest
+- Add their "Harvest User ID" and click "save"
+
+After you have completed the global setup of the plugin you can select which projects will actually be able to use the feature brought by the plugin. Due to the way the plugin implements this feature it is also possible to configure which Google Calendar is actually being displayed on a project level base.
+The project level setup consists of the following two tasks:
+
+==Permissions
+
+- Go to "Administration" top menu and click on "Roles and permissions"
+- Click on a role which you would like to have access to the Harvest reports
+- Check the box next to "View Harvest" and click "Save"

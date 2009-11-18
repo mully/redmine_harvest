@@ -1,0 +1,2 @@
+module HarvestReportsHelper
+end

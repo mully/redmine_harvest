@@ -1,0 +1,23 @@
+<% project_fields = ProjectCustomField.find :all %>
+
+This will allow you to tie Harvest project IDs to Redmine projects. 
+Goto 'Admin -> Custom fields -> Projects' and create a field of type 'integer'.
+
+<p>
+  <label>Harvest Project ID</label>
+  <%= select_tag 'settings[harvest_project_id]',
+                 '<option value="">(Select one)</option>' +
+                 options_from_collection_for_select(project_fields, :id, :name, @settings['harvest_project_id'].to_i) %><br />
+</p>
+
+<% user_fields = UserCustomField.find :all %>
+
+This will allow you to tie Harvest user IDs to Redmine users. 
+Goto 'Admin -> Custom fields -> Users' and create a field of type 'integer'.
+
+<p>
+  <label>Harvest User ID</label>
+  <%= select_tag 'settings[harvest_user_id]',
+                 '<option value="">(Select one)</option>' +
+                 options_from_collection_for_select(user_fields, :id, :name, @settings['harvest_user_id'].to_i) %><br />
+</p>

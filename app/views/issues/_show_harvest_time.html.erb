@@ -1,0 +1,5 @@
+<% harvest_time = HarvestTime.sum(:hours, :conditions => {:issue_id => @issue.id}).to_f %>
+<tr>
+  <th class="spent-time">Harvest time:</th>
+  <td class="spent-hours"><%= harvest_time > 0 ? (link_to l_hours(harvest_time), {:controller => 'harvest_reports', :project_id => @project, :issue_id => @issue}) : "-" %></td>
+</tr>
