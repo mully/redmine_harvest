@@ -40,7 +40,17 @@ class HarvestTime < ActiveRecord::Base
 
       ht = HarvestTime.find_or_create_by_id(entry.id)
       
-      ht.update_attributes(entry.to_hash)
+      # Key names from the Harvest API
+      harvest_keys = entry.to_hash.keys
+      
+      # Column names of HarvestTime
+      harvest_time_keys = HarvestTime.column_names
+      
+      # These keys are not in our db, so do not try to include with the insert / update
+      excess_keys = harvest_keys - harvest_time_keys
+      entry_hash = entry.to_hash.reject {|k,v| excess_keys.include?(k)}       
+      
+      ht.update_attributes(entry_hash)
     end if harvest_entries    
     
   end

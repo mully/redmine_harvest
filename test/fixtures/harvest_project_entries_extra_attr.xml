@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<day-entries type="array">
+  <day-entry>
+    <created-at type="datetime">2009-08-01T02:21:32Z</created-at>
+    <hours type="decimal">4.5</hours>
+    <id type="integer">14316565</id>
+    <is-billed type="boolean">false</is-billed>
+    <is-closed type="boolean">false</is-closed>
+    <notes>This is a test</notes>
+    <project-id type="integer">408960</project-id>
+    <spent-at type="date">2009-07-31</spent-at>
+    <task-id type="integer">333865</task-id>
+    <timer-started-at type="datetime" nil="true"></timer-started-at>
+    <user-id type="integer">86342</user-id>
+    <new-attr>New attribute added to api</new-attr>
+  </day-entry>
+  <day-entry>
+    <created-at type="datetime">2009-08-01T02:21:46Z</created-at>
+    <hours type="decimal">2.0</hours>
+    <id type="integer">14316569</id>
+    <is-billed type="boolean">false</is-billed>
+    <is-closed type="boolean">false</is-closed>
+    <notes>Ticket #1234 - Working on stuff</notes>
+    <project-id type="integer">408960</project-id>
+    <spent-at type="date">2009-07-31</spent-at>
+    <task-id type="integer">333867</task-id>
+    <timer-started-at type="datetime" nil="true"></timer-started-at>
+    <user-id type="integer">86342</user-id>
+    <new-attr>New attribute added to api</new-attr>
+  </day-entry>
+</day-entries>

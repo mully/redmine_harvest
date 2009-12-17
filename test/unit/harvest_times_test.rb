@@ -32,5 +32,13 @@ class HarvestTimesTest < ActiveSupport::TestCase
     should "extract out integers prepended by # and store as issue_id" do
       assert HarvestTime.find(14316569).issue_id == 1234
     end
+    
+    should "be successful if attributes are added to Harvest api" do
+      url = /http:\/\/test%40example.com:OU812@testing.harvestapp.com\/projects\/408960\/entries.*/
+      stub_get url, 'harvest_project_entries_extra_attr.xml'
+      project = Project.first
+      assert HarvestTime.import_time(project)
+    end
+    
   end
 end

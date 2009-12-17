@@ -1,22 +1,10 @@
-= Harvest Plugin For Redmine
-
-==Overview
-
-The object of this plugin is to sync timesheet data from {Harvest}[http://www.getharvest.com/] with individual projects within Redmine.  When activated, this plugin will include a new "Harvest" tab and a "Harvest Time" section on the issue detail page with a summed up total of hours tied to a Redmine issue.  Harvest time entries are tied to Redmine issues by included #ticket_no (ie #1234) in the text portion of the timesheet entry. 
-
-Currently, data is automatically imported for the past week's worth of data every time a user goes to the "Harvest" tab of a particular Redmine project. 
+= harvest
 
 ==Installation
 
 - Install the plugin as described at: http://www.redmine.org/wiki/redmine/Plugins, according to the way you've obtained the plugin (this plugin does not require a plugin database migration)
-- Install the {Harvestr}[http://github.com/squeejee/harvestr] plugin
 - Restart Redmine
-- Create a "config/harvest.yml" file with the following:
 
-    domain:  <Harvest subdomain>    
-    email: <Harvest email address>    
-    password: <Harvest password>
-  
 ==Global setup
 
 Before you can actually use the plugin within the preferred projects some setup has to be done first.
