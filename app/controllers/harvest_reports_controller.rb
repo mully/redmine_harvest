@@ -4,6 +4,8 @@ class HarvestReportsController < ApplicationController
   include SortHelper
   unloadable
   
+  menu_item :harvest
+  
   before_filter :find_project, :authorize
   before_filter :import_time
   

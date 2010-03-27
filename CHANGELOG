@@ -1,0 +1,11 @@
+0.1.1 (3-27-2010):
+    * Feature: Added project-menu item (tab) highlighting
+    * Add changelog file
+    * Add license file
+
+
+0.1.0 (12-17-2009):
+    - Fix issue caused by Harvest API update
+
+0.0.1 (11-17-2009):
+    - Initial public release

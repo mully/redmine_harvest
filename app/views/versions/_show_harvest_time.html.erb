@@ -1,0 +1,27 @@
+<% harvest_time = HarvestTime.harvest_time_by_version(@version) %>
+<% ticket_points = HarvestTime.ticket_points_by_version(@version) %>
+
+
+<div id="version-harvest" style="float: left">
+  <fieldset>
+    <legend>Harvest Time</legend>
+    <table>
+      <% if @version.estimated_hours > 0%>
+        <tr>
+            <td width="120px" align="right"><%= l(:field_estimated_hours) %>:</td>
+            <td width="150px" align="right" style="font-size: 110%; font-weight: bold"><%= html_hours(l_hours(@version.estimated_hours)) %></td>
+        </tr>
+      <% end %>
+      <% if ticket_points > 0%>
+        <tr>
+            <td width="120px" align="right">Points:</td>
+            <td width="150px" align="right" style="font-size: 110%; font-weight: bold"><%= ticket_points %></td>
+        </tr>
+      <% end %>
+      <tr>
+          <td width="120px" align="right">Time From Harvest:</td>
+          <td width="150px" align="right" style="font-size: 110%; font-weight: bold"><%= html_hours(l_hours(harvest_time)) %></td>
+      </tr>
+    </table>
+  </fieldset>
+</div>

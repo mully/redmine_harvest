@@ -17,6 +17,16 @@ class HarvestTime < ActiveRecord::Base
     harvest_user_id = custom_value.value.to_i if custom_value
   end
   
+  def self.harvest_time_by_version(version)
+    HarvestTime.sum(:hours, :include => :issue, :conditions => ["#{Issue.table_name}.fixed_version_id = ?", version.id]).to_f
+  end
+  
+  def self.ticket_points_by_version(version)
+    Issue.all(:conditions => {:fixed_version_id => version.id}).map do |issue|
+      issue.custom_field_values.find {|v| v.custom_field.name =~ /points/i}.value.to_i
+    end.sum rescue 0 
+  end
+  
   def self.import_time(project)
     harvest_project_id = self.project_id(project)
     #harvest_project_id = 408960

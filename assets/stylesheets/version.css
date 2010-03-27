@@ -1,0 +1,9 @@
+div#version-harvest  {
+  position: absolute;
+  background-color:#FFFFFF;
+  float:right;
+  margin-bottom:16px;
+  margin-left:16px;
+  position:absolute;
+  width:380px;
+}
