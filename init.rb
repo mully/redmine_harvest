@@ -29,6 +29,7 @@ Redmine::Plugin.register :redmine_harvest do
     # This permission has to be explicitly given
     # It will be listed on the permissions screen
     permission :view_harvest, {:harvest_reports => :index}
+    permission :see_harvest_time, {:issues => :show, :versions => :show}
   end
   
   menu :project_menu, :harvest, {:controller => 'harvest_reports', :action => 'index'}, :caption => 'Harvest', :param => :project_id

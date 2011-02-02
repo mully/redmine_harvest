@@ -37,5 +37,7 @@ The project level setup consists of the following two tasks:
 ==Permissions
 
 - Go to "Administration" top menu and click on "Roles and permissions"
-- Click on a role which you would like to have access to the Harvest reports
-- Check the box next to "View Harvest" and click "Save"
+- Click on a role for which you would like to set Harvest persmissions
+- Check the box next to "View Harvest" to grant access to Harvest reports page
+- Check the box next to "See Harvest Time" to show Harvest time on issue's page
+- Click "Save"

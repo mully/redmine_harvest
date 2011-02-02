@@ -1,3 +1,5 @@
+<% if User.current.allowed_to?(:see_harvest_time, @project) %>
+
 <% harvest_time = HarvestTime.harvest_time_by_version(@version) %>
 <% ticket_points = HarvestTime.ticket_points_by_version(@version) %>
 
@@ -25,3 +27,4 @@
     </table>
   </fieldset>
 </div>
+<% end %>
