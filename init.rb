@@ -33,3 +33,7 @@ Redmine::Plugin.register :redmine_harvest do
   
   menu :project_menu, :harvest, {:controller => 'harvest_reports', :action => 'index'}, :caption => 'Harvest', :param => :project_id
 end
+
+Dispatcher.to_prepare do
+  Hash.send(:include, Harvest::Patches::HashPatch) unless Hash < Harvest::Patches::HashPatch
+end
