@@ -3,39 +3,37 @@ class HarvestReportsController < ApplicationController
   helper :timelog
   include SortHelper
   unloadable
-  
+
   menu_item :harvest
-  
+
   before_filter :find_project, :authorize
   before_filter :import_time
-  
-  def index    
+
+  def index
     sort_init 'created_at', 'desc'
     sort_update 'spent_at' => 'spent_at',
                 'user' => 'user_id',
                 'issue' => 'issue_id',
                 'hours' => 'hours'
-                
-    cond = ARCondition.new
-    cond << ['project_id = ?', @project.id]
-    cond << ["issue_id = ?", @issue.id] if @issue
-    
+
+    scope = HarvestTime.scoped(:conditions => { :project_id => @project.id })
+    scope = scope.scoped(:conditions => { :issue_id => @issue.id }) if @issue
+
     retrieve_date_range
-    cond << ['spent_at BETWEEN ? AND ?', @from, @to]
-                      
+    scope = scope.scoped(:conditions => ['spent_at BETWEEN ? AND ?', @from, @to])
+
     # HarvestTime.visible_by(User.current) do
       respond_to do |format|
         format.html {
           # Paginate results
-          @entry_count = HarvestTime.count(:include => :project, :conditions => cond.conditions)
+          @entry_count = scope.count(:include => :project)
           @entry_pages = Paginator.new self, @entry_count, per_page_option, params['page']
-          @entries = HarvestTime.find(:all, 
-                                    :include => [:project, :user], 
-                                    :conditions => cond.conditions,
-                                    :order => sort_clause,
-                                    :limit  =>  @entry_pages.items_per_page,
-                                    :offset =>  @entry_pages.current.offset)
-          @total_hours = HarvestTime.sum(:hours, :conditions => cond.conditions).to_f
+          @entries = scope.find(:all,
+                                :include => [:project, :user],
+                                :order => sort_clause,
+                                :limit  =>  @entry_pages.items_per_page,
+                                :offset =>  @entry_pages.current.offset)
+          @total_hours = scope.sum(:hours).to_f
 
           render :layout => !request.xhr?
         }
@@ -45,8 +43,8 @@ class HarvestReportsController < ApplicationController
 
   def show
   end
-  
-  
+
+
   private
     def find_project   
       @project = Project.find(params[:project_id])
