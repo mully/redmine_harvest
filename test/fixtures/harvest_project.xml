@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <name>Test Project</name>
+  <over-budget-notified-at type="date" nil="true"></over-budget-notified-at>
+  <billable type="boolean">true</billable>
+  <created-at type="datetime">2011-01-04T00:48:08Z</created-at>
+  <earliest-record-at type="date">2011-01-03</earliest-record-at>
+  <show-budget-to-all type="boolean">false</show-budget-to-all>
+  <code>testproject</code>
+  <cost-budget type="decimal" nil="true"></cost-budget>
+  <notify-when-over-budget type="boolean">false</notify-when-over-budget>
+  <updated-at type="datetime">2011-02-02T11:27:15Z</updated-at>
+  <cost-budget-include-expenses type="boolean">false</cost-budget-include-expenses>
+  <fees type="decimal" nil="true"></fees>
+  <highrise-deal-id type="integer" nil="true"></highrise-deal-id>
+  <latest-record-at type="date">2011-02-02</latest-record-at>
+  <hourly-rate type="decimal">45.0</hourly-rate>
+  <id type="integer">408960</id>
+  <bill-by>Project</bill-by>
+  <client-id type="integer">454760</client-id>
+  <active-user-assignments-count type="integer">4</active-user-assignments-count>
+  <cache-version type="integer">0</cache-version>
+  <budget type="decimal" nil="true"></budget>
+  <over-budget-notification-percentage type="decimal">80.0</over-budget-notification-percentage>
+  <active type="boolean">true</active>
+  <active-task-assignments-count type="integer">7</active-task-assignments-count>
+  <basecamp-id type="integer" nil="true"></basecamp-id>
+  <budget-by>none</budget-by>
+  <estimate type="yaml" nil="true"></estimate>
+  <estimate-by>none</estimate-by>
+  <notes></notes>
+  <hint-earliest-record-at>2011-01-03</hint-earliest-record-at>
+  <hint-latest-record-at>2011-02-02</hint-latest-record-at>
+</project>
